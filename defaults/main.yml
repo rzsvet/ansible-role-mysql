@@ -1,2 +1,2 @@
 ---
-root_default_password: "root"
+mysql_default_password: "root"
