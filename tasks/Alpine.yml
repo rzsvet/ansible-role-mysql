@@ -1,0 +1,5 @@
+---
+- name: Starting install Mysql
+  community.general.apk:
+    name: mysql
+    state: present

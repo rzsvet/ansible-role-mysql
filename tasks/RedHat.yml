@@ -1,0 +1,38 @@
+---
+- debug: 
+    msg:
+      - "*===============================*"
+      - "* CHANGE PASSWORD AFTER INSTALL *"
+      - "* User: root                    *"
+      - "* Password: {{ my_password }} *"
+      - "*===============================*"
+- name: Install Mysql on Redhat
+  ansible.builtin.dnf:
+    name: 
+      - mysql-server
+      - python3
+      - python3-pip
+    state: latest
+- name: Install Required pip modules
+  pip:
+    name:
+      - PyMySQL
+    state: present
+    executable: pip3
+- name: Ensure mysql service is running
+  systemd:
+    name: mysqld
+    state: started
+    enabled: yes
+- name: Setup Password for Admin Login
+  community.mysql.mysql_user:
+    login_password: "{{ my_password }}"
+    check_implicit_admin: yes
+    name: root
+    host: "{{ item }}"
+    password: "{{ my_password }}"
+    state: present
+  with_items:
+    - localhost
+    - 127.0.0.1
+    - ::1

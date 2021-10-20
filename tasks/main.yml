@@ -1,0 +1,7 @@
+---
+- name: Echo Debug
+  debug:
+    msg: "Enable Role Mysql"
+- name: Run install Mysql on {{ ansible_facts['os_family'] }}
+  include_tasks: "{{ ansible_facts['os_family'] }}.yml"
+
