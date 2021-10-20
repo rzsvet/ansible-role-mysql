@@ -15,9 +15,9 @@
     state: latest
 - debug:
     msg:
-      - "*=======================*"
-      - "* SEND SERVER TO REBOOT *"
-      - "*=======================*"
+      - "*========================*"
+      - "* SERVER SENT FOR REBOOT *"
+      - "*========================*"
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
@@ -34,9 +34,9 @@
     enabled: yes
 - debug:
     msg:
-      - "*=======================*"
-      - "* SEND SERVER TO REBOOT *"
-      - "*=======================*"
+      - "*========================*"
+      - "* SERVER SENT FOR REBOOT *"
+      - "*========================*"
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
