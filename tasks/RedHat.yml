@@ -40,7 +40,7 @@
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
-- name: Setup Password for Admin Login
+- name: Setup password for root user
   community.mysql.mysql_user:
     login_password: "{{ mysql_default_password }}"
     check_implicit_admin: yes
