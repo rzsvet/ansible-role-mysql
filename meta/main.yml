@@ -1,2 +1,22 @@
 ---
-name: "mysql"
+galaxy_info:
+  author: Svet
+  description: Role for Mysql
+  role_name: mysql
+  namespace: rzsvet
+
+  license: Apache License, Version 2.0
+
+  platforms:
+    - name: Alpine
+      versions:
+        - any
+    - name: EL
+      versions:
+        - 7
+        - 8
+
+  galaxy_tags:
+    - mysql
+
+dependencies: []
