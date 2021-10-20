@@ -22,11 +22,6 @@
       - PyMySQL
     state: present
     executable: pip3
-- name: Ensure mysql service is running
-  systemd:
-    name: mysqld
-    state: started
-    enabled: yes
 - debug:
     msg:
       - "*========================*"
@@ -35,6 +30,11 @@
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
+- name: Ensure mysql service is running
+  systemd:
+    name: mysqld
+    state: started
+    enabled: yes
 - name: Setup password for root user
   community.mysql.mysql_user:
     login_password: "{{ mysql_default_password }}"
