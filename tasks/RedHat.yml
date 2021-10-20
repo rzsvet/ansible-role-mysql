@@ -13,11 +13,6 @@
       - python3
       - python3-pip
     state: latest
-- debug:
-    msg:
-      - "*========================*"
-      - "* SERVER SENT FOR REBOOT *"
-      - "*========================*"
 - name: Wait for server to restart
   reboot:
     reboot_timeout: 3600
